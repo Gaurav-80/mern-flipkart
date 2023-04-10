@@ -7,12 +7,17 @@ import connectDB from "./database/db.js";
 import DefaultData from "./default.js";
 import Routes from "./routes/route.js";
 import path from "path";
+import {fileURLToPath} from 'url';
 
 dotenv.config();
 const app = express();
 
 // mongodb connection
 connectDB();
+
+//esmodule fix
+const __filename= fileURLToPath(import.meta.url);
+const __dirname= path.dirname(__filename)
 
 //middleware
 app.use(cors());
